@@ -213,7 +213,7 @@ $(document).ready(function() {
             case '#works':
                 target = 3;
                 break;
-            case '#skill':
+            case '#books':
                 target = 4;
                 break;
             case '#contact':
@@ -302,7 +302,7 @@ window.onscroll = Global.throttle(function(){
                 fadeInTarget = '.works-list';
                 break;
             case 4:
-                fadeInTarget = '.skill-content';
+                fadeInTarget = '.books-content';
                 break;
             case 5:
                 fadeInTarget = '.contact-content';

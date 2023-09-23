@@ -7,6 +7,15 @@
 
 	<link rel="stylesheet" href="./style.css" type="text/css" media="all" />
 	<link rel="shortcut icon" href="./images/favicon.png"/>
+	<style>
+		#playShow img {
+			width:200px;
+			height: auto;
+		}
+		#playNum a{
+			display: none;
+		}
+	</style>
 </head>
 <body class="loading-process">
 <div class="loading">
@@ -21,7 +30,7 @@
 				<li class="nav-about fade fade1"><a href="#about">关于</a></li>
 				<li class="nav-works fade fade4"><a href="#works">作品</a></li>
 				<li class="fade back-home"><a href="#top">首页</a></li>
-				<li class="nav-books fade fade4"><a href="#books">书籍</a></li>
+				<li class="nav-books fade fade4"><a href="#books">链接</a></li>
 				<li class="nav-contact fade fade4"><a href="#contact">联系</a></li>
 			</ul>
 		</nav>
@@ -50,8 +59,16 @@
 				<p class="fade fade2">2021 年考入十一学校</p>
 				<p class="fade fade3">断续写过两年多独立博客</p>
 			</div>
-			<div class="right">
-				<img class="my-photo fade fade4" src="images/me.jpg" alt="" width="335" height="540">
+			<div class="right" id="play">
+				<ul>
+					<li id="playNum"><a >1</a><a>2</a><a>3</a></li>
+					<li id="playShow">
+						<a href="#" target="_blank"><img src="images/me.jpg"></a>
+						<a href="#" target="_blank"><img src="images/me1.jpg"></a>
+						<a href="#" target="_blank"><img src="images/me2.jpg"></a>
+					</li>
+				</ul>
+
 			</div>
 		</div>
 	</div>
@@ -62,12 +79,13 @@
 			<h1>近期作品</h1>
 			<div class="works-list clearfix">
 				<div class="works-item first fade fade1">
-					<a href="books/harrypotter1.html" target="_blank">
-						<img src="images/works/uucsr.jpg" alt="" width="300" height="180">
+					<a href="books/adam-fallacy.html" target="_blank">
+						<img src="images/works/adam-fallacy.png" alt="" width="300" height="300">
 						<div class="work-info">
-							<h2>harrypotter first book</h2>
-							<p><strong>开发时间</strong>：2013年8月<br>
-							<strong>This is for harrypotter1</strong></p>
+							<br>
+							<h4>Adam's fallacy: a guide to economics theology</h4>
+							<p><strong>Written Time</strong>：June, 2023<br>
+							Adam's fallacy: a guide to economics theology</p>
 						</div>
 					</a>
 				</div>
@@ -100,10 +118,12 @@
 <div id="books" class="section-wrap section-books">
 	<div class="section">
 		<div class="books-content clearfix section-content">
-			<h1>书籍</h1>
+			<h1>友情链接</h1>
 			<ul>
-				<li><a target="_blank" href="books/harrypotter1.html"><p style="color:aliceblue;">哈利波特1书评</p></a></li>
-				<li><a target="_blank" href="books/harrypotter1.html"><p style="color:aliceblue;">哈利波特2书评</p></a></li>
+				<li><a target="_blank" href="http://www.stats.gov.cn"><p style="color:aliceblue;">中国国家统计局</p></a></li>
+				<li><a target="_blank" href="http://ifb.cass.cn/irti"><p style="color:aliceblue;">中国社科院金融统计数据库</p></a></li>
+				<li><a target="_blank" href="http://www.wind.com.cn"><p style="color:aliceblue;">Wind资讯</p></a></li>
+				<li><a target="_blank" href="http://www.worldbank.org/data"><p style="color:aliceblue;">世界银行数据</p></a></li>
 			</ul>
 		</div>
 	</div>
@@ -137,6 +157,22 @@
 
 <script type="text/javascript" src="./js/jquery-1.9.1.min.js"></script>
 <script src="js/global.js"></script>
+<script>
+	var n=0,count=$("#playNum a").size();
 
+	$("#playNum a").click(function(){
+		var i=$(this).text()-1;
+		$("#playShow a").filter(":visible").hide().parent().children().eq(i).fadeIn(1200);
+	});
+
+	function showAuto(){
+		n=n>=(count-1)?0:++n;
+		$("#playNum a").eq(n).trigger('click');
+	}
+	$(function(){
+		$("#playShow a:not(:first-child)").hide();
+		setInterval("showAuto()",3000);
+	});
+</script>
 </body>
 </html>

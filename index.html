@@ -15,9 +15,52 @@
 		#playNum a{
 			display: none;
 		}
+
+		div ul li a:hover{
+			-webkit-transform: scale(2,2);
+			-moz-transform: scale(2,2);
+			-o-transform: scale(2,2);
+			-webkit-transition-duration: 2s;
+			-moz-transition-duration: 2s;
+			-o-transition-duration: 2s;
+		}
+
+	    div ul li a p:visited{
+			-webkit-transform: scale(1,1.2);
+			-moz-transform: scale(1,1.2);
+			-o-transform: scale(1,1.2);
+			-webkit-transition-duration: 2s;
+			-moz-transition-duration: 2s;
+			-o-transition-duration: 2s;
+			background-color: aqua;
+		}
+	    div ul li a p:hover{
+			animation-name: changeBackground;
+			animation-duration: 3s;
+			animation-timing-function: linear;
+			animation-iteration-count: infinite;
+			animation-direction: alternate;
+			animation-play-state: running;
+			
+			-webkit-animation-name: changeBackground;
+			-webkit-animation-duration: 3s;
+			-webkit-animation-timing-function: linear;
+			-webkit-animation-iteration-count: infinite;
+			-webkit-animation-direction: alternate;
+			-webkit-animation-play-state: running;			
+		}
+
+		@keyframes changeBackground {
+			0% {scale:1;background-color: aqua;}
+			25% {scale:1.1;background-color: rgb(34, 30, 216);}
+			50% {scale:1.2;background-color: rgb(140, 127, 255);}
+			75% {scale:1.3;background-color: rgb(151, 49, 138);}			
+			100% {scale:1.4;background-color: rgb(230, 38, 79);}			
+		}
 	</style>
 </head>
 <body >
+	
 <div class="loading">
 	<div class="loading-circle"></div>
 	<div class="loading-avatar"><img src="images/avatar@2x.jpg" alt="" width="50" height="50"></div>
@@ -109,10 +152,10 @@
 		<div class="books-content clearfix section-content">
 			<h1>Link Anywhere</h1><br>
 			<ul>
-				<li><a target="_blank" href="http://www.stats.gov.cn"><p style="color:aliceblue; text-decoration: underline;">China National Bureau of Statistics</p></a></li>
-				<li><a target="_blank" href="http://ifb.cass.cn/irti"><p style="color:aliceblue;text-decoration: underline;">Financial Statistics Database of the Chinese Academy of Social Sciences</p></a></li>
-				<li><a target="_blank" href="http://www.wind.com.cn"><p style="color:aliceblue;text-decoration: underline;">Wind Economy Info</p></a></li>
-				<li><a target="_blank" href="http://www.worldbank.org/data"><p style="color:aliceblue;text-decoration: underline;">World Bank Database</p></a></li>
+				<li><a target="_blank" href="http://www.stats.gov.cn"><p style="color:aliceblue; text-decoration: underline;width: 300px;">China National Bureau of Statistics</p></a></li>
+				<li><a target="_blank" href="http://ifb.cass.cn/irti"><p style="color:aliceblue;text-decoration: underline;width: 600px;">Financial Statistics Database of the Chinese Academy of Social Sciences</p></a></li>
+				<li><a target="_blank" href="http://www.wind.com.cn"><p style="color:aliceblue;text-decoration: underline;width: 200px;">Wind Economy Info</p></a></li>
+				<li><a target="_blank" href="http://www.worldbank.org/data"><p style="color:aliceblue;text-decoration: underline;width: 200px;">World Bank Database</p></a></li>
 			</ul>
 		</div>
 	</div>
@@ -132,6 +175,7 @@
 					</ul>
 				</div>
 				<div class="contact-info fade fade2">
+					<br>
 					<hr width="1000" size="2" />
 					<h2>Annoucement</h2>
 					<p>Owned by Maeve Qiu, and thanks for jQuery</p>

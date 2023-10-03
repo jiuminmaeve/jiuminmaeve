@@ -57,9 +57,13 @@
 			75% {scale:1.3;background-color: rgb(151, 49, 138);}			
 			100% {scale:1.4;background-color: rgb(230, 38, 79);}			
 		}
+
+		#dateTime1{
+			font-size: 35px;
+		}
 	</style>
 </head>
-<body >
+<body>
 	
 <div class="loading">
 	<div class="loading-circle"></div>
@@ -161,7 +165,7 @@
 	</div>
 </div>
 
-<div id="contact" class="section-wrap section-contact">
+<div id="contact" class="section-wrap section-contact" onload="showDateTime();">
 	<div class="section">
 		<div class="contact-content clearfix section-content">
 			<h1>Contact</h1>
@@ -174,11 +178,16 @@
 						<li>Github：<a target="_blank" href="https://github.com/qiushutian" style="font-weight: bold; color:aliceblue;text-decoration: underline;">@qiushutian</a></li>
 					</ul>
 				</div>
-				<div class="contact-info fade fade2">
+				<div class="contact-info fade fade2" >
 					<br>
 					<hr width="1000" size="2" />
+					<br>
+					<br>
+					<br>
+					<h1 align="left" id="dateTime1" ></h1>
+					<br>
 					<h2>Annoucement</h2>
-					<p>Owned by Maeve Qiu, and thanks for jQuery</p>
+					<p >Owned by Maeve Qiu, and thanks for jQuery</p>
 				</div>
 			</div>
 		</div>
@@ -207,5 +216,32 @@
 		setInterval("showAuto()",2000);
 	});
 </script>
+
+<script>
+// this is for clock display
+    function showDateTime(){
+		var myDate= new Date();
+		var hour=myDate.getHours();
+		var min=myDate.getMinutes();
+		var sec=myDate.getSeconds();
+
+		if (min<10){
+			min="0"+min
+		}
+
+		if (hour<10){
+			hour="0"+hour
+		}
+
+		if (sec<10){
+			sec="0"+sec
+		}
+
+		document.getElementById("dateTime1").innerHTML='<p >' +" Beijing time: "+hour+":"+min+":"+sec+ '</p>';
+	}
+
+	setInterval("showDateTime();",1000);
+</script>
+
 </body>
 </html>

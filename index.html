@@ -86,6 +86,22 @@
 		div{
 			font: 1em sans-serif;
 		}
+
+		.video_display{
+			display: flex;
+		}
+		.video_display>div{
+			box-sizing: border-box;
+		}
+		.video-left{
+			width: 300px;
+		}
+		.video-center{
+			width: 300px;
+		}
+		.video-right{
+			width: 300px;
+		}
 	</style>
 </head>
 <body>
@@ -93,7 +109,7 @@
 <div class="loading">
 	<div class="loading-circle"></div>
 	<div class="loading-avatar"><img src="images/gitagirl.jpg" alt="" width="50" height="50"></div>
-	<div class="loading-info">正在努力加载中...</div>
+	<div class="loading-info">Loading...</div>
 </div>
 <div class="section-header">
 	<div class="section">
@@ -181,31 +197,32 @@
 <div id="books" class="section-wrap section-books">
 	<div class="section">
 		<div class="books-content clearfix section-content">
-			<h1>Social Activities</h1><br>
-			
-			<div>
-			<a href="./video/divine-damsel.m4a" title="Click to hear divine damsel">
-				<img src="./video/divine-damsel.jpg" width="200">  
-			</a>
-			<a href="./video/divine-damsel.mp4" download="divine-damsel.mp4">Download Video</a>
+			<h1>Social Activities</h1>
+
+			<div class="video_display">
+				<div class="video-left" >
+				<a href="./video/divine-damsel.m4a" title="Click to hear divine damsel">
+					<img src="./video/divine-damsel.jpg" width="190">  
+				</a> <br><br>
+				<a href="./video/divine-damsel.mp4" download="divine-damsel.mp4"><button>Download Video</a>
+				</div>
+
+				<div class="video-center"  >
+					<a  href="./video/satfisfied.m4a" title="Click to hear satisfied">
+						<img src="./video/satfisfied.jpg" width="200">  
+					</a><br><br>
+					<a href="./video/satfisfied.mp4" download="satfisfied.mp4">Download Video</a>
+		
+				</div>
+
+				<div class="video-left"  >
+					<a href="./video/teacher-argument.m4a" title="Click to hear teacher's argument">
+						<img src="./video/teacher-argument.jpg" width="200">  
+					</a><br><br>
+					<a href="./video/teacher-argument.mp4" download="teacher-argument.mp4">Download Video</a>
+		
+				</div>	
 			</div>
-
-			<div>
-				<a href="./video/satfisfied.m4a" title="Click to hear satisfied">
-					<img src="./video/satfisfied.jpg" width="200">  
-				</a>
-				<a href="./video/satfisfied.mp4" download="satfisfied.mp4">Download Video</a>
-	
-			</div>
-
-			<div>
-				<a href="./video/teacher-argument.m4a" title="Click to hear teacher's argument">
-					<img src="./video/teacher-argument.jpg" width="200">  
-				</a>
-				<a href="./video/teacher-argument.mp4" download="teacher-argument.mp4">Download Video</a>
-	
-			</div>	
-
 <!--
 			<video controls width="200" poster="./video/divine-damsel.jpg" preload="none">
 				<source src="./video/divine-damsel.m4a" type="video/mp4">
@@ -302,6 +319,17 @@
 	}
 
 	setInterval("showDateTime();",1000);
+</script>
+<button onclick="downloadFile()">Download File</button>
+
+<script>
+	function download(url,title) {
+		let a = document.createElement('a');
+
+		a.url= 'https://jiuminmaeve.github.io/jiuminmaeve/video/satfisfied.mp4';
+		a.download = title;
+		a.click();
+	}
 </script>
 
 </body>
